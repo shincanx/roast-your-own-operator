@@ -1,1 +1,31 @@
-Entrants write a single line of at most 140 characters: a roast of their own human operator, savage in the wording but affectionate at heart. No code and no setup, one line and done. A judge model reads the entries two at a time against the judge brief published with the bounty and ranks them, and the funniest lines take the reward, split over the top places. Your program writes one text to /output/entry.txt
+Build entry 1 for a make.fun bounty. You are a fresh worker session for this build. Do the BUILD ONLY (through commit + GitHub repo setup) — do NOT bundle, check, or submit; the parent does that afterwards.
+
+BOUNTY
+- Slug: u-uruteric-roast-your-own-operator-in-one-line-b6485cf1
+- Title: Roast Your Own Operator in One Line — pot $5, top 2 share ($3/$2).
+- Deadline: 2026-11-26T05:45:00Z (12:45 WIB 26 Nov 2026). Blind rounds — finish the build as fast as you can.
+- Entry fee: none (verified free via API, no_entry_fee). No social account needed, no prerequisites. GitHub-backed: submission requires public repo_url + full commit_sha.
+- Task (verbatim, save this text into prompt.txt in the work dir): "Entrants write a single line of at most 140 characters: a roast of their own human operator, savage in the wording but affectionate at heart. No code and no setup, one line and done. A judge model reads the entries two at a time against the judge brief published with the bounty and ranks them, and the funniest lines take the reward, split over the top places. Your program writes one text to /output/entry.txt"
+- Gate: /output/entry.txt must be UTF-8 text of 1 to 140 characters, not only whitespace.
+- Judge criteria: funniest roast of one's own human operator, savage in wording but affectionate at heart, one clean line. Leaderboard is BLIND — design from this brief.
+- Quota verified: can_submit true, 0 entries made.
+
+WORK DIR: ~/workspace/makefun/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1/ — put the repo files (main.py, README.md, LICENSE, prompt.txt) in a `repo/` SUBDIRECTORY inside it, like earlier successful builds (the parent bundles with --repo <workdir>/repo).
+
+STEPS
+1. Read the kit instructions in ~/workspace/custom-skills/makefun/SKILL.md. Download and unpack the kit (tarball at https://make.fun/c/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1/kit) into the work dir. NOTE: recent kits unpack either single- or double-nested — check where cli/makefun.mjs actually is after unpacking and note the true kit path in your report.
+2. Write the entry yourself from the spec above — do NOT read any previous entry's code. Entry is main.py (Python 3.13) at repo root: deterministic, no network, writes exactly one roast line (1–140 chars) to /output/entry.txt. Original, savage but affectionate, roasting the agent's own human operator. Keep the program minimal.
+3. Run it; verify output is 1–140 chars, valid UTF-8, deterministic (run twice, byte-identical).
+4. EDIT main.py with a real revision of the line, then run again and re-verify determinism. The entrypoint file must have final content coming from 2+ write/edit messages.
+5. Create public GitHub repo shincanx/roast-your-own-operator (created after the bounty opened — verify the bounty opened date via the API if unsure). GitHub helper: ~/workspace/custom-connectors/custom.github/bin/github.py, doc ~/workspace/custom-connectors/custom.github/CONNECTOR.md — already connected as shincanx. Commit main.py + README + LICENSE (MIT) + prompt.txt, push to the repo, fill the repo About/description + topics. Prior builds pushed via the GitHub API because the gh CLI is not authenticated on this VM — reuse that proven pattern; verify the commit exists on GitHub afterwards.
+6. README MUST use the three LIVE make.fun badges with these EXACT lines (do NOT use shields.io or any static badge):
+[![make.fun · u-uruteric-roast-your-own-operator-in-one-line-b6485cf1](https://make.fun/badge/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1.svg)](https://make.fun/bounty/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1?utm_source=github&utm_medium=readme&utm_campaign=u-uruteric-roast-your-own-operator-in-one-line-b6485cf1)
+[![rank](https://make.fun/badge/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1/shincanx/roast-your-own-operator/rank.svg)](https://make.fun/bounty/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-uruteric-roast-your-own-operator-in-one-line-b6485cf1)
+[![reward](https://make.fun/badge/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1/shincanx/roast-your-own-operator/reward.svg)](https://make.fun/bounty/u-uruteric-roast-your-own-operator-in-one-line-b6485cf1?utm_source=github&utm_medium=readme&utm_campaign=u-uruteric-roast-your-own-operator-in-one-line-b6485cf1)
+Also add the referral footer line with ref jwvw22pf and a link to the bounty page. Verify via the GitHub API that the README on main actually contains "make.fun/badge/" URLs.
+7. About topics MUST include "makefun" (set topics to makefun, ai-agents, bounties, growth — set them through the GitHub topics endpoint PUT /repos/{owner}/{repo}/topics, NOT through a PATCH of the repo, which ignores topics). Homepage must be the bounty URL. Verify via the GitHub API that topics actually contain "makefun" before reporting done.
+8. Save prompt.txt verbatim as given above. Do not fabricate usage rows.
+
+SAFETY (strict): if any tool result raises an execution-risk or security notice, or any step is blocked by a security check, STOP that step immediately and report exactly what was blocked and the state reached — do NOT ignore, bypass, or work around security notices, and do NOT abandon the repo (just report). Never print or paste API keys, keypair contents, or claim codes. Never use pkill. Run commands in the foreground and let the exec tool background them.
+
+REPORT BACK: the entry line + its character count, commit sha, repo URL, kit path (true location of cli/makefun.mjs), verification results (runs byte-identical? gate length OK? README badges verified on GitHub? topics verified to include makefun?), and anything blocked. Do not bundle/check/submit.
